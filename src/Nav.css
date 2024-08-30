@@ -1,0 +1,143 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 20px 20px;
+  position: relative;
+}
+
+.navbar-logo img {
+  height: 40px;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin-left: 20px;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar-links a:hover {
+  color: #ddd;
+}
+
+.navbar-icon {
+  font-size: 20px;
+  color: #fff;
+}
+
+.navbar-icon:hover {
+  color: #ddd;
+}
+
+.navbar-logo {
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* For mobile screens */
+@media screen and (max-width: 768px) {
+  .navbar-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: black;
+      border-radius: 8px;
+      padding: 10px;
+      z-index: 100;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
+
+  .menu-icon {
+      display: block;
+  }
+
+  .navbar-links li {
+      margin: 10px 0;
+  }
+}
+
+/* Welcome popup */
+.welcome-popup {
+  position: absolute;
+  top: 62px;
+  left: 85px;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.navbar-logo:hover .welcome-popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Addnav styles */
+.addnav {
+  position: relative;
+  z-index: 3;
+  padding: 20px;
+  background: rgba(37, 36, 36, 0.8);
+  text-align: center;
+  margin-top: 5px;
+}
+
+
+.addnav::before{
+  content: "";
+  position: absolute;
+  top: -20px; /* Adjust this value to match the margin-top */
+  left: 0;
+  width: 100%;
+  height: 20px; /* Same height as the margin-top */
+  background: linear-gradient(to bottom, black, rgba(37, 36, 36, 0.8)); /* Transition from navbar to addnav */
+  z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
